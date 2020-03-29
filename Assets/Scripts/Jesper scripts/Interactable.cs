@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Interactable : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Interactable : MonoBehaviour
     public Type type;
 
     [Header("Pickup Settings")]
+    public string itemName;
+    public Sprite itemThumbnail;
     public int KeyID;
 
     [Header("Switch Settings")]
@@ -20,13 +23,19 @@ public class Interactable : MonoBehaviour
     public GameObject puzzle;
 
     [Header("Lock Settings")]
-    public int[] lockID;
+    public int lockID;
     public GameObject lockEffect;
+    public string acceptText;
+    public string rejectText;
+    public bool unlocked;
 
+    Inventory playerInventory;
+    GameObject interactMessage;
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        interactMessage = GameObject.FindGameObjectWithTag("Interact message");
     }
 
     // Update is called once per frame
@@ -48,12 +57,22 @@ public class Interactable : MonoBehaviour
             case Type.Switch:
                 Switch();
                 break;
+            case Type.Lock:
+                Lock();
+                break;
         }
     }
 
     void Pickup()
     {
         Destroy(gameObject);
+        if(playerInventory.inventoryIDs.Count < playerInventory.maxSize)
+        {
+            playerInventory.inventoryThumbnails.Add(itemThumbnail);
+            playerInventory.inventoryIDs.Add(KeyID);
+            interactMessage.GetComponent<Text>().text = "Picked up " + itemName;
+            interactMessage.GetComponent<Animator>().SetTrigger("Display");
+        }
     }
 
     void PuzzleTrigger()
@@ -63,7 +82,36 @@ public class Interactable : MonoBehaviour
 
     void Switch()
     {
+        if (!used)
+        {
+            switchEffect.GetComponent<Animator>().SetTrigger("Switch");
+            if (singleUse)
+            {
+                used = true;
+            }
+        }
+    }
 
+    void Lock()
+    {
+        if (playerInventory.inventoryIDs.Contains(lockID) && unlocked != true)
+        {
+            lockEffect.GetComponent<Animator>().SetTrigger("Unlock");
+            unlocked = true;
+            interactMessage.GetComponent<Text>().text = acceptText;
+        }
+        else
+        {
+            if (unlocked)
+            {
+                interactMessage.GetComponent<Text>().text = "It's already unlocked";
+            }
+            else
+            {
+                interactMessage.GetComponent<Text>().text = rejectText;
+            }
+        }
+        interactMessage.GetComponent<Animator>().SetTrigger("Display");
     }
 
 }

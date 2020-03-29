@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - Manager
+  - Interact message
   layers:
   - Default
   - TransparentFX
