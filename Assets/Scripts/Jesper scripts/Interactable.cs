@@ -4,6 +4,25 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+
+    public enum Type {Pickup, Switch, PuzzleTrigger, Lock };
+    public Type type;
+
+    [Header("Pickup Settings")]
+    public int KeyID;
+
+    [Header("Switch Settings")]
+    public bool singleUse;
+    public bool used;
+    public GameObject switchEffect;
+
+    [Header("Puzzler Trigger Settings")]
+    public GameObject puzzle;
+
+    [Header("Lock Settings")]
+    public int[] lockID;
+    public GameObject lockEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +34,36 @@ public class Interactable : MonoBehaviour
     {
         
     }
+
+    public void Interaction()
+    {
+        switch (type)
+        {
+            case Type.Pickup:
+                Pickup();
+                break;
+            case Type.PuzzleTrigger:
+                PuzzleTrigger();
+                break;
+            case Type.Switch:
+                Switch();
+                break;
+        }
+    }
+
+    void Pickup()
+    {
+        Destroy(gameObject);
+    }
+
+    void PuzzleTrigger()
+    {
+
+    }
+
+    void Switch()
+    {
+
+    }
+
 }

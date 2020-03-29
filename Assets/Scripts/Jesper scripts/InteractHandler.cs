@@ -27,6 +27,10 @@ public class InteractHandler : MonoBehaviour
             if(hit.transform.GetComponent<Interactable>() != null)
             {
                 interactUI.SetActive(true);
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Interact(hit.transform.gameObject);
+                }
             }
             else
             {
@@ -39,4 +43,10 @@ public class InteractHandler : MonoBehaviour
         }
 
     }
+
+    void Interact(GameObject interactable)
+    {
+        interactable.GetComponent<Interactable>().Interaction();
+    }
+
 }
