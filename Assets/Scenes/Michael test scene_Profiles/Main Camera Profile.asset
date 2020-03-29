@@ -18,7 +18,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.78
+    value: 57.1
   threshold:
     overrideState: 1
     value: 1.72
@@ -62,6 +62,29 @@ MonoBehaviour:
   settings:
   - {fileID: 8224078527975017315}
   - {fileID: -4655262479360255995}
+--- !u!114 &6549732534825346004
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 489789fe6a102f2408ea317c760a1f3c, type: 3}
+  m_Name: PostProcessPPSSettings
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  _MainTex:
+    overrideState: 1
+    value: {fileID: 2800000, guid: f0d8945c7972e4747aa776e16494fa37, type: 3}
+    defaultState: 1
+  _Color0:
+    overrideState: 0
+    value: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8224078527975017315
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -121,7 +144,7 @@ MonoBehaviour:
     value: 0
   colorFilter:
     overrideState: 1
-    value: {r: 0.8191527, g: 0.829603, b: 0.9811321, a: 1}
+    value: {r: 0.8066038, g: 0.8205843, b: 1, a: 1}
   hueShift:
     overrideState: 0
     value: 0
