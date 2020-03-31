@@ -6,6 +6,7 @@ public class MaterialScript : MonoBehaviour
 {
     Transform target;
     GameManager manager;
+    public bool autoDissolve;
     [Range(0, 1)]
     public float dissolveValue;
     Renderer matRend;
@@ -23,18 +24,22 @@ public class MaterialScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((target.position - transform.position).magnitude < manager.minimumDissolveRange)
+        if (autoDissolve)
         {
-            dissolveValue = 0;
-        }
-        else if ((target.position - transform.position).magnitude > manager.maximumDissolveRange)
-        {
-            dissolveValue = 1;
-        }
-        else {
-            dissolveValue = Mathf.Abs((manager.maximumDissolveRange - manager.minimumDissolveRange) - (target.position - transform.position).magnitude - manager.minimumDissolveRange) / (manager.maximumDissolveRange - manager.minimumDissolveRange);
+            if ((target.position - transform.position).magnitude < manager.minimumDissolveRange)
+            {
+                dissolveValue = 0;
+            }
+            else if ((target.position - transform.position).magnitude > manager.maximumDissolveRange)
+            {
+                dissolveValue = 1;
+            }
+            else
+            {
+                dissolveValue = Mathf.Abs((manager.maximumDissolveRange - manager.minimumDissolveRange) - (target.position - transform.position).magnitude - manager.minimumDissolveRange) / (manager.maximumDissolveRange - manager.minimumDissolveRange);
+            }
         }
 
-            mat.SetFloat("_DissolveValue", dissolveValue);
+        mat.SetFloat("_DissolveValue", dissolveValue);
     }
 }
