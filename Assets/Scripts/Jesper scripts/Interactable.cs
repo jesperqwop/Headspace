@@ -24,7 +24,7 @@ public class Interactable : MonoBehaviour
 
     [Header("Lock Settings")]
     public int lockID;
-    public GameObject lockEffect;
+    public GameObject[] lockEffect;
     public string acceptText;
     public string rejectText;
     public bool unlocked;
@@ -96,7 +96,10 @@ public class Interactable : MonoBehaviour
     {
         if (playerInventory.inventoryIDs.Contains(lockID) && unlocked != true)
         {
-            lockEffect.GetComponent<Animator>().SetTrigger("Unlock");
+            foreach(GameObject effect in lockEffect)
+            {
+                effect.GetComponent<Animator>().SetTrigger("Unlock");
+            }
             unlocked = true;
             interactMessage.GetComponent<Text>().text = acceptText;
         }
