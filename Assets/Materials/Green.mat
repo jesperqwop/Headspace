@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Blue
+  m_Name: Green
   m_Shader: {fileID: 4800000, guid: b39434c0d090af241870c67376de943e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -87,5 +87,5 @@ Material:
     m_Colors:
     - _Color: {r: 0, g: 0.35274744, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 0, g: 0.052033424, b: 1, a: 0}
+    - _MainColor: {r: 0.022774577, g: 1, b: 0, a: 0}
     - _TextureColor: {r: 1, g: 1, b: 1, a: 1}
