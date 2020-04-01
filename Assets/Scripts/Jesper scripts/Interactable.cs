@@ -72,7 +72,10 @@ public class Interactable : MonoBehaviour
         if(playerInventory.inventoryIDs.Count < playerInventory.maxSize)
         {
             Instantiate(pickupSFX, transform.position, Quaternion.identity);
-            playerInventory.inventoryThumbnails.Add(itemThumbnail);
+
+            // Information du skal sende nedenfor er et billede af item, dets navn, og en beskrivelse af det
+            PickupOverlay.instance.SetInfo(itemThumbnail ? itemThumbnail : null, itemName, "");
+            playerInventory.inventoryThumbnails.Add(itemThumbnail ? itemThumbnail : null);
             playerInventory.inventoryIDs.Add(KeyID);
             interactMessage.GetComponent<Text>().text = "Picked up " + itemName;
             interactMessage.GetComponent<Animator>().SetTrigger("Display");

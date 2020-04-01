@@ -17,6 +17,7 @@ public class ObjectRevealHandler : MonoBehaviour
     }
     // Start is called before the first frame update
     void Start()
+
     {
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Memory"))
         {
@@ -31,7 +32,8 @@ public class ObjectRevealHandler : MonoBehaviour
         {
             foreach (Memory m in memories)
             {
-                m.ViewTest();
+                if (m.gObject)
+                    m.ViewTest();
             }
         }
     }
