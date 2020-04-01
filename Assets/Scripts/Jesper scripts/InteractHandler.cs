@@ -27,7 +27,7 @@ public class InteractHandler : MonoBehaviour
             if(hit.transform.GetComponent<Interactable>() != null)
             {
                 interactUI.SetActive(true);
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E))
                 {
                     Interact(hit.transform.gameObject);
                 }
