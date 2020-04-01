@@ -11,13 +11,17 @@ public class Interactable : MonoBehaviour
 
     [Header("Pickup Settings")]
     public string itemName;
+    public string itemDescribtion;
     public Sprite itemThumbnail;
     public int KeyID;
+    public GameObject pickupSFX;
 
     [Header("Switch Settings")]
     public bool singleUse;
     public bool used;
     public GameObject switchEffect;
+    public GameObject OnSFX;
+    public GameObject OffSFX;
 
     [Header("Puzzler Trigger Settings")]
     public GameObject puzzle;
@@ -68,7 +72,11 @@ public class Interactable : MonoBehaviour
         Destroy(gameObject);
         if(playerInventory.inventoryIDs.Count < playerInventory.maxSize)
         {
-            playerInventory.inventoryThumbnails.Add(itemThumbnail);
+            Instantiate(pickupSFX, transform.position, Quaternion.identity);
+
+            // Information du skal sende nedenfor er et billede af item, dets navn, og en beskrivelse af det
+            PickupOverlay.instance.SetInfo(itemThumbnail ? itemThumbnail : null, itemName, "");
+            playerInventory.inventoryThumbnails.Add(itemThumbnail ? itemThumbnail : null);
             playerInventory.inventoryIDs.Add(KeyID);
             interactMessage.GetComponent<Text>().text = "Picked up " + itemName;
             interactMessage.GetComponent<Animator>().SetTrigger("Display");
