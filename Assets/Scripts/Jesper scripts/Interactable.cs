@@ -13,11 +13,14 @@ public class Interactable : MonoBehaviour
     public string itemName;
     public Sprite itemThumbnail;
     public int KeyID;
+    public GameObject pickupSFX;
 
     [Header("Switch Settings")]
     public bool singleUse;
     public bool used;
     public GameObject switchEffect;
+    public GameObject OnSFX;
+    public GameObject OffSFX;
 
     [Header("Puzzler Trigger Settings")]
     public GameObject puzzle;
@@ -68,6 +71,7 @@ public class Interactable : MonoBehaviour
         Destroy(gameObject);
         if(playerInventory.inventoryIDs.Count < playerInventory.maxSize)
         {
+            Instantiate(pickupSFX, transform.position, Quaternion.identity);
             playerInventory.inventoryThumbnails.Add(itemThumbnail);
             playerInventory.inventoryIDs.Add(KeyID);
             interactMessage.GetComponent<Text>().text = "Picked up " + itemName;
