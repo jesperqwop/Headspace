@@ -11,6 +11,7 @@ public class Interactable : MonoBehaviour
 
     [Header("Pickup Settings")]
     public string itemName;
+    public string itemDescribtion;
     public Sprite itemThumbnail;
     public int KeyID;
     public GameObject pickupSFX;
