@@ -294,14 +294,15 @@ MonoBehaviour:
   singleUse: 1
   used: 0
   switchEffect: {fileID: 0}
-  OnSFX: {fileID: 0}
-  OffSFX: {fileID: 0}
+  onSFX: {fileID: 0}
+  offSFX: {fileID: 0}
   puzzle: {fileID: 0}
   lockID: 0
   lockEffect: []
   acceptText: 
   rejectText: 
   unlocked: 0
+  unlockSFX: {fileID: 0}
 --- !u!64 &151998992
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -702,14 +703,15 @@ MonoBehaviour:
   singleUse: 0
   used: 0
   switchEffect: {fileID: 0}
-  OnSFX: {fileID: 0}
-  OffSFX: {fileID: 0}
+  onSFX: {fileID: 0}
+  offSFX: {fileID: 0}
   puzzle: {fileID: 0}
   lockID: 0
   lockEffect: []
   acceptText: 
   rejectText: 
   unlocked: 0
+  unlockSFX: {fileID: 0}
 --- !u!1 &262185171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,14 +1002,15 @@ MonoBehaviour:
   singleUse: 0
   used: 0
   switchEffect: {fileID: 0}
-  OnSFX: {fileID: 0}
-  OffSFX: {fileID: 0}
+  onSFX: {fileID: 0}
+  offSFX: {fileID: 0}
   puzzle: {fileID: 0}
   lockID: 0
   lockEffect: []
   acceptText: 
   rejectText: 
   unlocked: 0
+  unlockSFX: {fileID: 0}
 --- !u!1 &320071274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,14 +1128,15 @@ MonoBehaviour:
   singleUse: 0
   used: 0
   switchEffect: {fileID: 0}
-  OnSFX: {fileID: 0}
-  OffSFX: {fileID: 0}
+  onSFX: {fileID: 0}
+  offSFX: {fileID: 0}
   puzzle: {fileID: 0}
   lockID: 0
   lockEffect: []
   acceptText: 
   rejectText: 
   unlocked: 0
+  unlockSFX: {fileID: 0}
 --- !u!1 &324118536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,14 +1861,15 @@ MonoBehaviour:
   singleUse: 0
   used: 0
   switchEffect: {fileID: 0}
-  OnSFX: {fileID: 0}
-  OffSFX: {fileID: 0}
+  onSFX: {fileID: 0}
+  offSFX: {fileID: 0}
   puzzle: {fileID: 0}
   lockID: 0
   lockEffect: []
   acceptText: 
   rejectText: 
   unlocked: 0
+  unlockSFX: {fileID: 0}
 --- !u!65 &664374109
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2252,8 +2257,8 @@ MonoBehaviour:
   singleUse: 0
   used: 0
   switchEffect: {fileID: 0}
-  OnSFX: {fileID: 0}
-  OffSFX: {fileID: 0}
+  onSFX: {fileID: 0}
+  offSFX: {fileID: 0}
   puzzle: {fileID: 0}
   lockID: 2
   lockEffect:
@@ -2262,6 +2267,8 @@ MonoBehaviour:
   acceptText: Used blue key
   rejectText: Its locked
   unlocked: 0
+  unlockSFX: {fileID: 5724439738809657197, guid: 471c6bad7757e3b488d0e113863b9cba,
+    type: 3}
 --- !u!1 &737201676
 GameObject:
   m_ObjectHideFlags: 0
@@ -3038,14 +3045,15 @@ MonoBehaviour:
   singleUse: 0
   used: 0
   switchEffect: {fileID: 0}
-  OnSFX: {fileID: 0}
-  OffSFX: {fileID: 0}
+  onSFX: {fileID: 0}
+  offSFX: {fileID: 0}
   puzzle: {fileID: 0}
   lockID: 0
   lockEffect: []
   acceptText: 
   rejectText: 
   unlocked: 0
+  unlockSFX: {fileID: 0}
 --- !u!65 &1125699481
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3326,8 +3334,8 @@ MonoBehaviour:
   singleUse: 0
   used: 0
   switchEffect: {fileID: 0}
-  OnSFX: {fileID: 0}
-  OffSFX: {fileID: 0}
+  onSFX: {fileID: 0}
+  offSFX: {fileID: 0}
   puzzle: {fileID: 0}
   lockID: 0
   lockEffect:
@@ -3336,6 +3344,8 @@ MonoBehaviour:
   acceptText: Used red key
   rejectText: It's locked
   unlocked: 0
+  unlockSFX: {fileID: 5724439738809657197, guid: 471c6bad7757e3b488d0e113863b9cba,
+    type: 3}
 --- !u!65 &1322493936
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3607,8 +3617,8 @@ MonoBehaviour:
   singleUse: 0
   used: 0
   switchEffect: {fileID: 1460424267}
-  OnSFX: {fileID: 0}
-  OffSFX: {fileID: 0}
+  onSFX: {fileID: 0}
+  offSFX: {fileID: 0}
   puzzle: {fileID: 0}
   lockID: 5
   lockEffect:
@@ -3616,6 +3626,7 @@ MonoBehaviour:
   acceptText: Used the code to open the safe
   rejectText: I don't know the code
   unlocked: 0
+  unlockSFX: {fileID: 0}
 --- !u!1 &1485906100
 GameObject:
   m_ObjectHideFlags: 0
@@ -3693,14 +3704,16 @@ MonoBehaviour:
   singleUse: 0
   used: 0
   switchEffect: {fileID: 1485906100}
-  OnSFX: {fileID: 0}
-  OffSFX: {fileID: 0}
+  onSFX: {fileID: 5724439738809657197, guid: 471c6bad7757e3b488d0e113863b9cba, type: 3}
+  offSFX: {fileID: 0}
   puzzle: {fileID: 0}
   lockID: 0
   lockEffect: []
   acceptText: 
   rejectText: 
   unlocked: 0
+  unlockSFX: {fileID: 5724439738809657197, guid: 471c6bad7757e3b488d0e113863b9cba,
+    type: 3}
 --- !u!65 &1485906104
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3888,14 +3901,16 @@ MonoBehaviour:
   singleUse: 0
   used: 0
   switchEffect: {fileID: 1530024949}
-  OnSFX: {fileID: 0}
-  OffSFX: {fileID: 0}
+  onSFX: {fileID: 5724439738809657197, guid: 471c6bad7757e3b488d0e113863b9cba, type: 3}
+  offSFX: {fileID: 0}
   puzzle: {fileID: 0}
   lockID: 0
   lockEffect: []
   acceptText: 
   rejectText: 
   unlocked: 0
+  unlockSFX: {fileID: 5724439738809657197, guid: 471c6bad7757e3b488d0e113863b9cba,
+    type: 3}
 --- !u!65 &1530024953
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4071,8 +4086,8 @@ MonoBehaviour:
   singleUse: 0
   used: 0
   switchEffect: {fileID: 0}
-  OnSFX: {fileID: 0}
-  OffSFX: {fileID: 0}
+  onSFX: {fileID: 0}
+  offSFX: {fileID: 0}
   puzzle: {fileID: 0}
   lockID: 1
   lockEffect:
@@ -4081,6 +4096,8 @@ MonoBehaviour:
   acceptText: Used green key
   rejectText: It's locked
   unlocked: 0
+  unlockSFX: {fileID: 5724439738809657197, guid: 471c6bad7757e3b488d0e113863b9cba,
+    type: 3}
 --- !u!1 &1550643423
 GameObject:
   m_ObjectHideFlags: 0
@@ -4234,14 +4251,16 @@ MonoBehaviour:
   singleUse: 0
   used: 0
   switchEffect: {fileID: 1574437916}
-  OnSFX: {fileID: 0}
-  OffSFX: {fileID: 0}
+  onSFX: {fileID: 5724439738809657197, guid: 471c6bad7757e3b488d0e113863b9cba, type: 3}
+  offSFX: {fileID: 0}
   puzzle: {fileID: 0}
   lockID: 0
   lockEffect: []
   acceptText: 
   rejectText: 
   unlocked: 0
+  unlockSFX: {fileID: 5724439738809657197, guid: 471c6bad7757e3b488d0e113863b9cba,
+    type: 3}
 --- !u!65 &1574437920
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4359,14 +4378,15 @@ MonoBehaviour:
   singleUse: 0
   used: 0
   switchEffect: {fileID: 0}
-  OnSFX: {fileID: 0}
-  OffSFX: {fileID: 0}
+  onSFX: {fileID: 0}
+  offSFX: {fileID: 0}
   puzzle: {fileID: 0}
   lockID: 0
   lockEffect: []
   acceptText: 
   rejectText: 
   unlocked: 0
+  unlockSFX: {fileID: 0}
 --- !u!65 &1611825689
 BoxCollider:
   m_ObjectHideFlags: 0

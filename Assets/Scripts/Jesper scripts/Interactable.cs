@@ -20,8 +20,8 @@ public class Interactable : MonoBehaviour
     public bool singleUse;
     public bool used;
     public GameObject switchEffect;
-    public GameObject OnSFX;
-    public GameObject OffSFX;
+    public GameObject onSFX;
+    public GameObject offSFX;
 
     [Header("Puzzler Trigger Settings")]
     public GameObject puzzle;
@@ -32,7 +32,7 @@ public class Interactable : MonoBehaviour
     public string acceptText;
     public string rejectText;
     public bool unlocked;
-
+    public GameObject unlockSFX;
     Inventory playerInventory;
     GameObject interactMessage;
     // Start is called before the first frame update
@@ -93,6 +93,7 @@ public class Interactable : MonoBehaviour
         if (!used)
         {
             switchEffect.GetComponent<Animator>().SetTrigger("Switch");
+            Instantiate(onSFX, transform.position, Quaternion.identity);
             if (singleUse)
             {
                 used = true;
@@ -110,6 +111,7 @@ public class Interactable : MonoBehaviour
             }
             unlocked = true;
             interactMessage.GetComponent<Text>().text = acceptText;
+            Instantiate(unlockSFX, transform.position, Quaternion.identity);
         }
         else
         {
