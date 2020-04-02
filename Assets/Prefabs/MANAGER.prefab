@@ -329,6 +329,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6828d30be58929d41920213b41cdad9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minY: 1
+  maxY: 4
 --- !u!1 &7751084331875059884
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,6 +383,9 @@ MonoBehaviour:
   maximumDissolveRange: 10
   camSlider: 0
   apoint: {fileID: 7751084333116427824}
+  x: 0
+  y: 0
+  z: 0
   wetFootsteps:
   - {fileID: 8300000, guid: ebe46ee167f31914faba9d89907e737e, type: 3}
   - {fileID: 8300000, guid: 8b266f4df2cb240418c0af354e1b6b2f, type: 3}
@@ -412,6 +417,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6828d30be58929d41920213b41cdad9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minY: 1
+  maxY: 5
 --- !u!1001 &3110615969815815953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -419,6 +426,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 463248868}
     m_Modifications:
+    - target: {fileID: 4664113601926831104, guid: 1cb6b0ac3e3f6064d8ec6c451f33cb20,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664113601926831106, guid: 1cb6b0ac3e3f6064d8ec6c451f33cb20,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664113601926831108, guid: 1cb6b0ac3e3f6064d8ec6c451f33cb20,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664113601926831110, guid: 1cb6b0ac3e3f6064d8ec6c451f33cb20,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664113601926831116, guid: 1cb6b0ac3e3f6064d8ec6c451f33cb20,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4664113601940986188, guid: 1cb6b0ac3e3f6064d8ec6c451f33cb20,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class Interactable : MonoBehaviour
 {
 
-    public enum Type {Pickup, Switch, PuzzleTrigger, Lock };
+    public enum Type {Pickup, Switch, PuzzleTrigger, Lock, Examine };
     public Type type;
 
     [Header("Pickup Settings")]
+    public bool destroyOnPickup = true;
     public string itemName;
-    public string itemDescribtion;
+    public string itemDescription;
     public Sprite itemThumbnail;
     public int KeyID;
     public GameObject pickupSFX;
@@ -35,11 +36,22 @@ public class Interactable : MonoBehaviour
     public GameObject unlockSFX;
     Inventory playerInventory;
     GameObject interactMessage;
+
+    [Header("Examine Settings")]
+    public string objectName;
+    public string objectDescription;
+    public Sprite objectIcon;
+    public bool isBadMemory;
+    public bool seen;
     // Start is called before the first frame update
     void Start()
     {
         playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         interactMessage = GameObject.FindGameObjectWithTag("Interact message");
+        if (isBadMemory)
+        {
+            BadMemoryHandler.instance.unviewedMemories.Add(this);
+        }
     }
 
     // Update is called once per frame
@@ -64,18 +76,22 @@ public class Interactable : MonoBehaviour
             case Type.Lock:
                 Lock();
                 break;
+            case Type.Examine:
+                Examine();
+                break;
         }
     }
 
     void Pickup()
     {
-        Destroy(gameObject);
+        if (destroyOnPickup)
+            Destroy(gameObject);
         if(playerInventory.inventoryIDs.Count < playerInventory.maxSize)
         {
             Instantiate(pickupSFX, transform.position, Quaternion.identity);
 
             // Information du skal sende nedenfor er et billede af item, dets navn, og en beskrivelse af det
-            PickupOverlay.instance.SetInfo(itemThumbnail ? itemThumbnail : null, itemName, "");
+            PickupOverlay.instance.SetInfo(itemThumbnail ? itemThumbnail : null, itemName, itemDescription);
             playerInventory.inventoryThumbnails.Add(itemThumbnail ? itemThumbnail : null);
             playerInventory.inventoryIDs.Add(KeyID);
             interactMessage.GetComponent<Text>().text = "Picked up " + itemName;
@@ -85,7 +101,7 @@ public class Interactable : MonoBehaviour
 
     void PuzzleTrigger()
     {
-
+        puzzle.SendMessage("Trigger");
     }
 
     void Switch()
@@ -127,4 +143,21 @@ public class Interactable : MonoBehaviour
         interactMessage.GetComponent<Animator>().SetTrigger("Display");
     }
 
+    public void Examine()
+    {
+        PickupOverlay.instance.SetInfo(objectIcon, objectName, objectDescription);
+        if (!seen)
+        {
+            BadMemoryHandler.instance.t = 0;
+            if (BadMemoryHandler.instance.unviewedMemories.Contains(this))
+            {
+                BadMemoryHandler.instance.unviewedMemories.Remove(this);
+            }
+            if (!BadMemoryHandler.instance.viewedMemories.Contains(this))
+            {
+                BadMemoryHandler.instance.viewedMemories.Add(this);
+            }
+            seen = true;            
+        }
+    }
 }

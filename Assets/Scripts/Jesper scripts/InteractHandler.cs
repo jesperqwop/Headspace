@@ -46,7 +46,8 @@ public class InteractHandler : MonoBehaviour
 
     void Interact(GameObject interactable)
     {
-        interactable.GetComponent<Interactable>().Interaction();
+        //interactable.GetComponent<Interactable>().Interaction();
+        interactable.SendMessage("Interaction");
     }
 
 }

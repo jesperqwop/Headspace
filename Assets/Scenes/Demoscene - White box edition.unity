@@ -238,6 +238,58 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &117195970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 117195972}
+  - component: {fileID: 117195971}
+  m_Layer: 0
+  m_Name: Bad Memories
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &117195971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117195970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5841f27642e8a4d9aa0e8a65e20e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unviewedMemories: []
+  viewedMemories: []
+  delayBeforeHighlight: 10
+  waterLevel: 0
+  triggered: 0
+  t: 0
+--- !u!4 &117195972
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117195970}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.94726086, y: -0.9834423, z: 4.5385714}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 639033233}
+  - {fileID: 496239388}
+  - {fileID: 1585566816}
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &151998989
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,6 +303,7 @@ GameObject:
   - component: {fileID: 151998993}
   - component: {fileID: 151998992}
   - component: {fileID: 151998991}
+  - component: {fileID: 151998995}
   m_Layer: 0
   m_Name: clue
   m_TagString: Untagged
@@ -285,8 +338,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  destroyOnPickup: 0
   itemName: Disturbing picture
-  itemDescribtion: 
+  itemDescription: 
   itemThumbnail: {fileID: 0}
   KeyID: 6
   pickupSFX: {fileID: 3285774924899063414, guid: bb0224d57e727eb4e91ce629937e3ac0,
@@ -303,6 +357,11 @@ MonoBehaviour:
   rejectText: 
   unlocked: 0
   unlockSFX: {fileID: 0}
+  objectName: 
+  objectDescription: 
+  objectIcon: {fileID: 0}
+  isBadMemory: 0
+  seen: 0
 --- !u!64 &151998992
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -364,6 +423,43 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 151998989}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &151998995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151998989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fda56a5a71ed04287a5219ee00e534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  destroyOnPickup: 1
+  itemName: Disturbing picture
+  itemDescription: 
+  itemThumbnail: {fileID: 0}
+  KeyID: 6
+  pickupSFX: {fileID: 3285774924899063414, guid: bb0224d57e727eb4e91ce629937e3ac0,
+    type: 3}
+  singleUse: 1
+  used: 0
+  switchEffect: {fileID: 0}
+  onSFX: {fileID: 0}
+  offSFX: {fileID: 0}
+  puzzle: {fileID: 117195970}
+  lockID: 0
+  lockEffect: []
+  acceptText: 
+  rejectText: 
+  unlocked: 0
+  unlockSFX: {fileID: 0}
+  objectName: 
+  objectDescription: 
+  objectIcon: {fileID: 0}
+  isBadMemory: 0
+  seen: 0
 --- !u!1 &171551656
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,8 +790,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  destroyOnPickup: 1
   itemName: Clue 2
-  itemDescribtion: 
+  itemDescription: 
   itemThumbnail: {fileID: 0}
   KeyID: 4
   pickupSFX: {fileID: 3285774924899063414, guid: bb0224d57e727eb4e91ce629937e3ac0,
@@ -712,6 +809,11 @@ MonoBehaviour:
   rejectText: 
   unlocked: 0
   unlockSFX: {fileID: 0}
+  objectName: 
+  objectDescription: 
+  objectIcon: {fileID: 0}
+  isBadMemory: 0
+  seen: 0
 --- !u!1 &262185171
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,8 +1095,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  destroyOnPickup: 1
   itemName: Clue 1
-  itemDescribtion: 
+  itemDescription: 
   itemThumbnail: {fileID: 0}
   KeyID: 3
   pickupSFX: {fileID: 3285774924899063414, guid: bb0224d57e727eb4e91ce629937e3ac0,
@@ -1011,6 +1114,11 @@ MonoBehaviour:
   rejectText: 
   unlocked: 0
   unlockSFX: {fileID: 0}
+  objectName: 
+  objectDescription: 
+  objectIcon: {fileID: 0}
+  isBadMemory: 0
+  seen: 0
 --- !u!1 &320071274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,8 +1227,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  destroyOnPickup: 1
   itemName: Clue 3
-  itemDescribtion: 
+  itemDescription: 
   itemThumbnail: {fileID: 0}
   KeyID: 5
   pickupSFX: {fileID: 3285774924899063414, guid: bb0224d57e727eb4e91ce629937e3ac0,
@@ -1137,6 +1246,11 @@ MonoBehaviour:
   rejectText: 
   unlocked: 0
   unlockSFX: {fileID: 0}
+  objectName: 
+  objectDescription: 
+  objectIcon: {fileID: 0}
+  isBadMemory: 0
+  seen: 0
 --- !u!1 &324118536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,6 +1506,136 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93e86b57e56570d46814839867bf9a52, type: 3}
+--- !u!1 &496239387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 496239388}
+  - component: {fileID: 496239392}
+  - component: {fileID: 496239391}
+  - component: {fileID: 496239390}
+  - component: {fileID: 496239389}
+  m_Layer: 0
+  m_Name: Memory (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &496239388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496239387}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.97, y: 3.07, z: -10.58}
+  m_LocalScale: {x: 1, y: 1, z: 0.2}
+  m_Children: []
+  m_Father: {fileID: 117195972}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &496239389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496239387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fda56a5a71ed04287a5219ee00e534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 4
+  destroyOnPickup: 1
+  itemName: 
+  itemDescription: 
+  itemThumbnail: {fileID: 0}
+  KeyID: 0
+  pickupSFX: {fileID: 0}
+  singleUse: 0
+  used: 0
+  switchEffect: {fileID: 0}
+  onSFX: {fileID: 0}
+  offSFX: {fileID: 0}
+  puzzle: {fileID: 0}
+  lockID: 0
+  lockEffect: []
+  acceptText: 
+  rejectText: 
+  unlocked: 0
+  unlockSFX: {fileID: 0}
+  objectName: Memory
+  objectDescription: This is a bad memory
+  objectIcon: {fileID: 0}
+  isBadMemory: 1
+  seen: 0
+--- !u!65 &496239390
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496239387}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &496239391
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496239387}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &496239392
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496239387}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &515952711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1661,6 +1905,136 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1926380683}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &639033232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 639033233}
+  - component: {fileID: 639033237}
+  - component: {fileID: 639033236}
+  - component: {fileID: 639033235}
+  - component: {fileID: 639033234}
+  m_Layer: 0
+  m_Name: Memory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &639033233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639033232}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.53, y: 3.07, z: 1.13}
+  m_LocalScale: {x: 1, y: 1, z: 0.2}
+  m_Children: []
+  m_Father: {fileID: 117195972}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &639033234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639033232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fda56a5a71ed04287a5219ee00e534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 4
+  destroyOnPickup: 1
+  itemName: 
+  itemDescription: 
+  itemThumbnail: {fileID: 0}
+  KeyID: 0
+  pickupSFX: {fileID: 0}
+  singleUse: 0
+  used: 0
+  switchEffect: {fileID: 0}
+  onSFX: {fileID: 0}
+  offSFX: {fileID: 0}
+  puzzle: {fileID: 0}
+  lockID: 0
+  lockEffect: []
+  acceptText: 
+  rejectText: 
+  unlocked: 0
+  unlockSFX: {fileID: 0}
+  objectName: Memory
+  objectDescription: This is a bad memory
+  objectIcon: {fileID: 0}
+  isBadMemory: 1
+  seen: 0
+--- !u!65 &639033235
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639033232}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &639033236
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639033232}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &639033237
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639033232}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &644236243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1852,8 +2226,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  destroyOnPickup: 1
   itemName: Red key
-  itemDescribtion: It's a red key
+  itemDescription: 
   itemThumbnail: {fileID: 21300000, guid: 2ce43d4a69106cb41be8ee9c81b321ff, type: 3}
   KeyID: 0
   pickupSFX: {fileID: 3285774924899063414, guid: bb0224d57e727eb4e91ce629937e3ac0,
@@ -1870,6 +2245,11 @@ MonoBehaviour:
   rejectText: 
   unlocked: 0
   unlockSFX: {fileID: 0}
+  objectName: 
+  objectDescription: 
+  objectIcon: {fileID: 0}
+  isBadMemory: 0
+  seen: 0
 --- !u!65 &664374109
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2249,8 +2629,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
+  destroyOnPickup: 1
   itemName: 
-  itemDescribtion: 
+  itemDescription: 
   itemThumbnail: {fileID: 0}
   KeyID: 0
   pickupSFX: {fileID: 0}
@@ -2269,6 +2650,11 @@ MonoBehaviour:
   unlocked: 0
   unlockSFX: {fileID: 5724439738809657197, guid: 471c6bad7757e3b488d0e113863b9cba,
     type: 3}
+  objectName: 
+  objectDescription: 
+  objectIcon: {fileID: 0}
+  isBadMemory: 0
+  seen: 0
 --- !u!1 &737201676
 GameObject:
   m_ObjectHideFlags: 0
@@ -3036,8 +3422,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  destroyOnPickup: 1
   itemName: Blue key
-  itemDescribtion: 
+  itemDescription: 
   itemThumbnail: {fileID: 21300000, guid: 1e033ce7660f2614bbe2e9029b64c837, type: 3}
   KeyID: 2
   pickupSFX: {fileID: 3285774924899063414, guid: bb0224d57e727eb4e91ce629937e3ac0,
@@ -3054,6 +3441,11 @@ MonoBehaviour:
   rejectText: 
   unlocked: 0
   unlockSFX: {fileID: 0}
+  objectName: 
+  objectDescription: 
+  objectIcon: {fileID: 0}
+  isBadMemory: 0
+  seen: 0
 --- !u!65 &1125699481
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3326,8 +3718,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
+  destroyOnPickup: 1
   itemName: 
-  itemDescribtion: 
+  itemDescription: 
   itemThumbnail: {fileID: 0}
   KeyID: 0
   pickupSFX: {fileID: 0}
@@ -3346,6 +3739,11 @@ MonoBehaviour:
   unlocked: 0
   unlockSFX: {fileID: 5724439738809657197, guid: 471c6bad7757e3b488d0e113863b9cba,
     type: 3}
+  objectName: 
+  objectDescription: 
+  objectIcon: {fileID: 0}
+  isBadMemory: 0
+  seen: 0
 --- !u!65 &1322493936
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3609,8 +4007,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
+  destroyOnPickup: 1
   itemName: 
-  itemDescribtion: 
+  itemDescription: 
   itemThumbnail: {fileID: 0}
   KeyID: 0
   pickupSFX: {fileID: 0}
@@ -3627,6 +4026,11 @@ MonoBehaviour:
   rejectText: I don't know the code
   unlocked: 0
   unlockSFX: {fileID: 0}
+  objectName: 
+  objectDescription: 
+  objectIcon: {fileID: 0}
+  isBadMemory: 0
+  seen: 0
 --- !u!1 &1485906100
 GameObject:
   m_ObjectHideFlags: 0
@@ -3696,8 +4100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  destroyOnPickup: 1
   itemName: 
-  itemDescribtion: 
+  itemDescription: 
   itemThumbnail: {fileID: 0}
   KeyID: 0
   pickupSFX: {fileID: 0}
@@ -3714,6 +4119,11 @@ MonoBehaviour:
   unlocked: 0
   unlockSFX: {fileID: 5724439738809657197, guid: 471c6bad7757e3b488d0e113863b9cba,
     type: 3}
+  objectName: 
+  objectDescription: 
+  objectIcon: {fileID: 0}
+  isBadMemory: 0
+  seen: 0
 --- !u!65 &1485906104
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3893,8 +4303,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  destroyOnPickup: 1
   itemName: 
-  itemDescribtion: 
+  itemDescription: 
   itemThumbnail: {fileID: 0}
   KeyID: 0
   pickupSFX: {fileID: 0}
@@ -3911,6 +4322,11 @@ MonoBehaviour:
   unlocked: 0
   unlockSFX: {fileID: 5724439738809657197, guid: 471c6bad7757e3b488d0e113863b9cba,
     type: 3}
+  objectName: 
+  objectDescription: 
+  objectIcon: {fileID: 0}
+  isBadMemory: 0
+  seen: 0
 --- !u!65 &1530024953
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4078,8 +4494,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
+  destroyOnPickup: 1
   itemName: 
-  itemDescribtion: 
+  itemDescription: 
   itemThumbnail: {fileID: 0}
   KeyID: 0
   pickupSFX: {fileID: 0}
@@ -4098,6 +4515,11 @@ MonoBehaviour:
   unlocked: 0
   unlockSFX: {fileID: 5724439738809657197, guid: 471c6bad7757e3b488d0e113863b9cba,
     type: 3}
+  objectName: 
+  objectDescription: 
+  objectIcon: {fileID: 0}
+  isBadMemory: 0
+  seen: 0
 --- !u!1 &1550643423
 GameObject:
   m_ObjectHideFlags: 0
@@ -4243,8 +4665,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  destroyOnPickup: 1
   itemName: 
-  itemDescribtion: 
+  itemDescription: 
   itemThumbnail: {fileID: 0}
   KeyID: 0
   pickupSFX: {fileID: 0}
@@ -4261,6 +4684,11 @@ MonoBehaviour:
   unlocked: 0
   unlockSFX: {fileID: 5724439738809657197, guid: 471c6bad7757e3b488d0e113863b9cba,
     type: 3}
+  objectName: 
+  objectDescription: 
+  objectIcon: {fileID: 0}
+  isBadMemory: 0
+  seen: 0
 --- !u!65 &1574437920
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4321,6 +4749,136 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574437916}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1585566815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1585566816}
+  - component: {fileID: 1585566820}
+  - component: {fileID: 1585566819}
+  - component: {fileID: 1585566818}
+  - component: {fileID: 1585566817}
+  m_Layer: 0
+  m_Name: Memory (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1585566816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585566815}
+  m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 7.76, y: 3.07, z: -5.94}
+  m_LocalScale: {x: 1, y: 1, z: 0.2}
+  m_Children: []
+  m_Father: {fileID: 117195972}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+--- !u!114 &1585566817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585566815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fda56a5a71ed04287a5219ee00e534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 4
+  destroyOnPickup: 1
+  itemName: 
+  itemDescription: 
+  itemThumbnail: {fileID: 0}
+  KeyID: 0
+  pickupSFX: {fileID: 0}
+  singleUse: 0
+  used: 0
+  switchEffect: {fileID: 0}
+  onSFX: {fileID: 0}
+  offSFX: {fileID: 0}
+  puzzle: {fileID: 0}
+  lockID: 0
+  lockEffect: []
+  acceptText: 
+  rejectText: 
+  unlocked: 0
+  unlockSFX: {fileID: 0}
+  objectName: Memory
+  objectDescription: This is a bad memory
+  objectIcon: {fileID: 0}
+  isBadMemory: 1
+  seen: 0
+--- !u!65 &1585566818
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585566815}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1585566819
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585566815}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1585566820
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585566815}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1611825686
 GameObject:
   m_ObjectHideFlags: 0
@@ -4369,8 +4927,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  destroyOnPickup: 1
   itemName: Green key
-  itemDescribtion: 
+  itemDescription: 
   itemThumbnail: {fileID: 0}
   KeyID: 1
   pickupSFX: {fileID: 3285774924899063414, guid: bb0224d57e727eb4e91ce629937e3ac0,
@@ -4387,6 +4946,11 @@ MonoBehaviour:
   rejectText: 
   unlocked: 0
   unlockSFX: {fileID: 0}
+  objectName: 
+  objectDescription: 
+  objectIcon: {fileID: 0}
+  isBadMemory: 0
+  seen: 0
 --- !u!65 &1611825689
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4780,6 +5344,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MANAGER
+      objectReference: {fileID: 0}
+    - target: {fileID: 7751084333116427824, guid: f323b92ec569bb44296e59ce5baf2fb5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f323b92ec569bb44296e59ce5baf2fb5, type: 3}
