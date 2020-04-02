@@ -19,7 +19,7 @@ public class WaterSource : MonoBehaviour
     {
         if (manager.waterStatus == GameManager.WaterStatus.Underwater)
         {
-            AS.spatialBlend = 1;
+            AS.spatialBlend = 0.9F;
         }
         else
         {

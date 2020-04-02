@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     Scissor scissor2;
     public Transform apoint;
 
-    float x, y, z;
+    public float x, y, z;
 
 
     AudioReverbZone reverbZone;
@@ -54,11 +54,13 @@ public class GameManager : MonoBehaviour
         if (apoint.position.y > (mainCam.transform.position.y + y))
         {
             camSlider = 1;
+            print("Underwater boys");
             waterStatus = WaterStatus.Underwater;
             UpdateSounds();
         }
-        else
+        else if (apoint.position.y > (mainCam.transform.position.y - y))
         {
+            print(camSlider);
             camSlider = mainCam.WorldToViewportPoint(new Vector3(mainCam.transform.position.x, apoint.position.y, mainCam.transform.position.z) + new Vector3(mainCam.transform.forward.x, 0, mainCam.transform.forward.z).normalized * mainCam.nearClipPlane).y;
         }
 
