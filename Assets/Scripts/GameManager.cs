@@ -6,15 +6,15 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class GameManager : MonoBehaviour
 {
     public enum WaterStatus { Dry, Water, Underwater };
-    public static WaterStatus waterStatus = WaterStatus.Dry;
+    public WaterStatus waterStatus = WaterStatus.Dry;
 
     public float waterRiseSpeed = 100;
 
     public float minimumDissolveRange;
     public float maximumDissolveRange;
 
-    public Camera mainCam;
-    public Camera waterCam;
+    Camera mainCam;
+    Camera waterCam;
 
     [Range(0, 1)]
     public float camSlider = 0;
@@ -23,18 +23,24 @@ public class GameManager : MonoBehaviour
 
     float x, y, z;
 
+
+    AudioReverbZone reverbZone;
     FirstPersonController controller;
 
     AudioClip[] dryFootsteps;
     public AudioClip[] wetFootsteps;
-  //  public firrs
+    //  public firrs
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
         dryFootsteps = controller.m_FootstepSounds;
+        mainCam = Camera.main;
+        waterCam = mainCam.transform.GetChild(0).GetComponent<Camera>();
+        waterCam.gameObject.SetActive(true);
         scissor2 = waterCam.GetComponent<Scissor>();
+        reverbZone = GetComponentInChildren<AudioReverbZone>();
 
         z = mainCam.nearClipPlane;
         x = mainCam.fieldOfView / 2 / 100;
@@ -49,6 +55,7 @@ public class GameManager : MonoBehaviour
         {
             camSlider = 1;
             waterStatus = WaterStatus.Underwater;
+            UpdateSounds();
         }
         else
         {
@@ -76,10 +83,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void UpdateSounds() {
-      //  if (waterStatus == WaterStatus.Underwater)
+    void UpdateSounds()
+    {
+        if (waterStatus == WaterStatus.Water)
         {
+            reverbZone.reverbPreset = AudioReverbPreset.StoneCorridor;
             controller.m_FootstepSounds = wetFootsteps;
+        }
+        else if (waterStatus == WaterStatus.Underwater)
+        {
+            reverbZone.reverbPreset = AudioReverbPreset.Underwater;
+            controller.m_FootstepSounds = dryFootsteps;
+        }
+        else 
+        {
+            reverbZone.reverbPreset = AudioReverbPreset.Livingroom;
+            controller.m_FootstepSounds = dryFootsteps;
         }
     }
 }

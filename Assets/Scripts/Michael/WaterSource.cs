@@ -17,7 +17,7 @@ public class WaterSource : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.waterStatus == GameManager.WaterStatus.Underwater)
+        if (manager.waterStatus == GameManager.WaterStatus.Underwater)
         {
             AS.spatialBlend = 1;
         }
