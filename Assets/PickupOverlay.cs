@@ -12,6 +12,7 @@ public class PickupOverlay : MonoBehaviour
     public Text description;
     public float skipDelay = 0.5f;
     float t = 0;
+    public bool viewingOverlay = false;
 
     void Awake()
     {
@@ -26,6 +27,7 @@ public class PickupOverlay : MonoBehaviour
             if (Input.anyKey && t > skipDelay)
             {
                 folder.SetActive(false);
+                viewingOverlay = false;
                 t = 0;
             }
         }
@@ -33,6 +35,7 @@ public class PickupOverlay : MonoBehaviour
 
     public void SetInfo(Sprite _image, string _name, string _description)
     {
+        viewingOverlay = true;
         icon.sprite = _image ? _image : null;
         name.text = !string.IsNullOrEmpty(_name) ? _name : "name is null";
         description.text = !string.IsNullOrEmpty(_description) ? _description : "description is null";

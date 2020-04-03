@@ -23,6 +23,10 @@ public class WaterSource : MonoBehaviour
         {
             ps.Play();
         }
+        else if (ps.isPlaying && BadMemoryHandler.instance.stopTheWater)
+        {
+            Destroy(gameObject);
+        }
         if (manager.waterStatus == GameManager.WaterStatus.Underwater)
         {
             AS.spatialBlend = 0.9F;

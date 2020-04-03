@@ -29,7 +29,8 @@ public class InteractHandler : MonoBehaviour
                 interactUI.SetActive(true);
                 if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E))
                 {
-                    Interact(hit.transform.gameObject);
+                    if (!PickupOverlay.instance.viewingOverlay)
+                        Interact(hit.transform.gameObject);
                 }
             }
             else

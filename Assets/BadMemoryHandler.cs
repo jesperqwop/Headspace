@@ -9,10 +9,14 @@ public class BadMemoryHandler : MonoBehaviour
     public List<Interactable> viewedMemories = new List<Interactable>();
     public float delayBeforeHighlight = 10f;
     public float waterLevel = 0f;
+    public GameObject finalMemory;
 
     bool listPopulated = false;
     public bool triggered = false;
     public float t;
+
+    bool checkForGoodMemory = false;
+    public bool stopTheWater = false;
 
     void Awake()
     {
@@ -50,7 +54,22 @@ public class BadMemoryHandler : MonoBehaviour
                     break;
                 case 3:
                     waterLevel = Mathf.Lerp(0.6f, 1f, t);
+                    finalMemory.SetActive(true);
+                    checkForGoodMemory = true;
+                    
                     break;
+            }
+        }
+
+        if (checkForGoodMemory)
+        {
+            foreach(Interactable m in viewedMemories)
+            {
+                if (!m.isBadMemory)
+                {
+                    stopTheWater = true;
+                    waterLevel = Mathf.Lerp(1, 0, t);
+                }
             }
         }
 
