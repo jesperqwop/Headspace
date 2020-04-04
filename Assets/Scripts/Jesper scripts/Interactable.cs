@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Interactable : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class Interactable : MonoBehaviour
     public GameObject puzzle;
 
     [Header("Lock Settings")]
+    public bool destroyOnUnlock = false;
     public int lockID;
     public GameObject[] lockEffect;
     public string acceptText;
@@ -43,6 +45,10 @@ public class Interactable : MonoBehaviour
     public Sprite objectIcon;
     public bool isBadMemory;
     public bool seen;
+    bool revealLocked = false;
+
+    public static event Action onInteract;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +68,7 @@ public class Interactable : MonoBehaviour
 
     public void Interaction()
     {
+        
         switch (type)
         {
             case Type.Pickup:
@@ -80,6 +87,12 @@ public class Interactable : MonoBehaviour
                 Examine();
                 break;
         }
+        if (!revealLocked)
+        {
+            revealLocked = true;
+            ObjectRevealHandler.instance.LockReveal(gameObject);
+        }
+        onInteract.Invoke();
     }
 
     void Pickup()
@@ -128,6 +141,11 @@ public class Interactable : MonoBehaviour
             unlocked = true;
             interactMessage.GetComponent<Text>().text = acceptText;
             Instantiate(unlockSFX, transform.position, Quaternion.identity);
+
+            if (destroyOnUnlock)
+            {
+                Destroy(gameObject);
+            }
         }
         else
         {

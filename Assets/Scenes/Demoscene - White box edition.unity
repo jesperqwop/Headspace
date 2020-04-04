@@ -354,6 +354,7 @@ MonoBehaviour:
   onSFX: {fileID: 0}
   offSFX: {fileID: 0}
   puzzle: {fileID: 0}
+  destroyOnUnlock: 0
   lockID: 0
   lockEffect: []
   acceptText: 
@@ -452,6 +453,7 @@ MonoBehaviour:
   onSFX: {fileID: 0}
   offSFX: {fileID: 0}
   puzzle: {fileID: 117195970}
+  destroyOnUnlock: 0
   lockID: 0
   lockEffect: []
   acceptText: 
@@ -806,6 +808,7 @@ MonoBehaviour:
   onSFX: {fileID: 0}
   offSFX: {fileID: 0}
   puzzle: {fileID: 0}
+  destroyOnUnlock: 0
   lockID: 0
   lockEffect: []
   acceptText: 
@@ -1111,6 +1114,7 @@ MonoBehaviour:
   onSFX: {fileID: 0}
   offSFX: {fileID: 0}
   puzzle: {fileID: 0}
+  destroyOnUnlock: 0
   lockID: 0
   lockEffect: []
   acceptText: 
@@ -1243,6 +1247,7 @@ MonoBehaviour:
   onSFX: {fileID: 0}
   offSFX: {fileID: 0}
   puzzle: {fileID: 0}
+  destroyOnUnlock: 0
   lockID: 0
   lockEffect: []
   acceptText: 
@@ -1524,7 +1529,7 @@ GameObject:
   - component: {fileID: 496239389}
   m_Layer: 0
   m_Name: Memory (1)
-  m_TagString: Untagged
+  m_TagString: Memory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1568,6 +1573,7 @@ MonoBehaviour:
   onSFX: {fileID: 0}
   offSFX: {fileID: 0}
   puzzle: {fileID: 0}
+  destroyOnUnlock: 0
   lockID: 0
   lockEffect: []
   acceptText: 
@@ -1947,6 +1953,7 @@ MonoBehaviour:
   onSFX: {fileID: 0}
   offSFX: {fileID: 0}
   puzzle: {fileID: 0}
+  destroyOnUnlock: 0
   lockID: 0
   lockEffect: []
   acceptText: 
@@ -2053,7 +2060,7 @@ GameObject:
   - component: {fileID: 639033234}
   m_Layer: 0
   m_Name: Memory
-  m_TagString: Untagged
+  m_TagString: Memory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2097,6 +2104,7 @@ MonoBehaviour:
   onSFX: {fileID: 0}
   offSFX: {fileID: 0}
   puzzle: {fileID: 0}
+  destroyOnUnlock: 0
   lockID: 0
   lockEffect: []
   acceptText: 
@@ -2214,6 +2222,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &657174960 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1901819194}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &658318007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2372,6 +2386,7 @@ MonoBehaviour:
   onSFX: {fileID: 0}
   offSFX: {fileID: 0}
   puzzle: {fileID: 0}
+  destroyOnUnlock: 0
   lockID: 0
   lockEffect: []
   acceptText: 
@@ -2670,7 +2685,7 @@ GameObject:
   - component: {fileID: 720658255}
   m_Layer: 0
   m_Name: blue cube
-  m_TagString: Untagged
+  m_TagString: Memory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2743,7 +2758,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 720658250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.06, y: 1.39, z: -0.90978914}
+  m_LocalPosition: {x: -1.87, y: 1.39, z: -2.99}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2774,6 +2789,7 @@ MonoBehaviour:
   onSFX: {fileID: 0}
   offSFX: {fileID: 0}
   puzzle: {fileID: 0}
+  destroyOnUnlock: 1
   lockID: 2
   lockEffect:
   - {fileID: 272611162}
@@ -3653,6 +3669,7 @@ MonoBehaviour:
   onSFX: {fileID: 0}
   offSFX: {fileID: 0}
   puzzle: {fileID: 0}
+  destroyOnUnlock: 0
   lockID: 0
   lockEffect: []
   acceptText: 
@@ -3918,7 +3935,7 @@ GameObject:
   - component: {fileID: 1322493935}
   m_Layer: 0
   m_Name: red cube
-  m_TagString: Untagged
+  m_TagString: Memory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3948,6 +3965,7 @@ MonoBehaviour:
   onSFX: {fileID: 0}
   offSFX: {fileID: 0}
   puzzle: {fileID: 0}
+  destroyOnUnlock: 1
   lockID: 0
   lockEffect:
   - {fileID: 1528894335}
@@ -4030,11 +4048,56 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322493934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.11, y: 1.39, z: 0.66}
+  m_LocalPosition: {x: 3.11, y: 1.39, z: 4.36}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1411968742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1411968744}
+  - component: {fileID: 1411968743}
+  m_Layer: 0
+  m_Name: RevealHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1411968743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411968742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bd57f8bc74e1f43a2eac96c5dfa3ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 657174960}
+  minDistance: 5
+--- !u!4 &1411968744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411968742}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.156, y: 2.0865576, z: -1.401}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1450900494
 PrefabInstance:
@@ -4113,7 +4176,7 @@ GameObject:
   - component: {fileID: 1460424272}
   m_Layer: 0
   m_Name: safe
-  m_TagString: Untagged
+  m_TagString: Memory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4237,6 +4300,7 @@ MonoBehaviour:
   onSFX: {fileID: 0}
   offSFX: {fileID: 0}
   puzzle: {fileID: 0}
+  destroyOnUnlock: 0
   lockID: 5
   lockEffect:
   - {fileID: 1460424267}
@@ -4330,6 +4394,7 @@ MonoBehaviour:
   onSFX: {fileID: 5724439738809657197, guid: 471c6bad7757e3b488d0e113863b9cba, type: 3}
   offSFX: {fileID: 0}
   puzzle: {fileID: 0}
+  destroyOnUnlock: 0
   lockID: 0
   lockEffect: []
   acceptText: 
@@ -4533,6 +4598,7 @@ MonoBehaviour:
   onSFX: {fileID: 5724439738809657197, guid: 471c6bad7757e3b488d0e113863b9cba, type: 3}
   offSFX: {fileID: 0}
   puzzle: {fileID: 0}
+  destroyOnUnlock: 0
   lockID: 0
   lockEffect: []
   acceptText: 
@@ -4620,7 +4686,7 @@ GameObject:
   - component: {fileID: 1533099001}
   m_Layer: 0
   m_Name: green cube
-  m_TagString: Untagged
+  m_TagString: Memory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4693,7 +4759,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533098996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9899127, y: 1.39, z: -0.90978914}
+  m_LocalPosition: {x: 7.56, y: 1.39, z: -2.83}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4724,6 +4790,7 @@ MonoBehaviour:
   onSFX: {fileID: 0}
   offSFX: {fileID: 0}
   puzzle: {fileID: 0}
+  destroyOnUnlock: 1
   lockID: 1
   lockEffect:
   - {fileID: 852846843}
@@ -4895,6 +4962,7 @@ MonoBehaviour:
   onSFX: {fileID: 5724439738809657197, guid: 471c6bad7757e3b488d0e113863b9cba, type: 3}
   offSFX: {fileID: 0}
   puzzle: {fileID: 0}
+  destroyOnUnlock: 0
   lockID: 0
   lockEffect: []
   acceptText: 
@@ -4982,7 +5050,7 @@ GameObject:
   - component: {fileID: 1585566817}
   m_Layer: 0
   m_Name: Memory (2)
-  m_TagString: Untagged
+  m_TagString: Memory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5026,6 +5094,7 @@ MonoBehaviour:
   onSFX: {fileID: 0}
   offSFX: {fileID: 0}
   puzzle: {fileID: 0}
+  destroyOnUnlock: 0
   lockID: 0
   lockEffect: []
   acceptText: 
@@ -5158,6 +5227,7 @@ MonoBehaviour:
   onSFX: {fileID: 0}
   offSFX: {fileID: 0}
   puzzle: {fileID: 0}
+  destroyOnUnlock: 0
   lockID: 0
   lockEffect: []
   acceptText: 

@@ -8,21 +8,24 @@ public class ObjectRevealHandler : MonoBehaviour
     public static Camera cam;
     public Transform player;
     public List<Memory> memories = new List<Memory>();
-    public float minDistance = 5f;
+    public float minDistance = 3f;
 
     void Awake()
     {
         instance = this;
+        Interactable.onInteract += OnInteraction;
         cam = Camera.main;
     }
+
+    private void OnInteraction()
+    {
+        UpdateListOfMemories();
+    }
+
     // Start is called before the first frame update
     void Start()
-
     {
-        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Memory"))
-        {
-            memories.Add(new Memory(go, player));
-        }
+        UpdateListOfMemories();
     }
 
     // Update is called once per frame
@@ -34,6 +37,43 @@ public class ObjectRevealHandler : MonoBehaviour
             {
                 if (m.gObject)
                     m.ViewTest();
+            }
+        }
+    }
+
+    public void UpdateListOfMemories()
+    {
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Memory"))
+        {
+            if (memories.Count > 0)
+            {
+                bool contained = false;
+                foreach(Memory m in memories)
+                {
+                    if (m.gObject == go)
+                    {
+                        contained = true;
+                    }
+                }
+                if (!contained)
+                {
+                    memories.Add(new Memory(go, player));
+                }
+            }
+            else
+            {
+                memories.Add(new Memory(go, player));
+            }
+        }
+    }
+
+    public void LockReveal(GameObject memory)
+    {
+        foreach (Memory m in memories)
+        {
+            if (m.gObject == memory)
+            {
+                m.revealLocked = true;
             }
         }
     }
@@ -68,25 +108,25 @@ public class Memory
         z = viewPos.z > 0;
         isWithinView = x && y && z;
         float distance = Vector3.Distance(gObject.transform.position, player.position);
-        tooClose = distance < ObjectRevealHandler.instance.minDistance;
-        if (!revealLocked && !tooClose)
-            RevealOrHide();
+        if (!revealLocked)
+            RevealOrHide(distance);
     }
 
-    public void RevealOrHide()
+    public void RevealOrHide(float distance)
     {
-        if (isWithinView && isVisible)
+        tooClose = distance<ObjectRevealHandler.instance.minDistance;
+        if (isWithinView && isVisible && !tooClose)
         {
             nextState = false;
         }
-        else if (isWithinView && !isVisible)
+        else if (isWithinView && !isVisible && distance > 1f)
         {
             nextState = true;
         }
         else if (!isWithinView)
         {
             mr.enabled = nextState;
-            col.isTrigger = !nextState;
+            col.enabled = nextState;
             isVisible = nextState;
         }
     }
