@@ -26,6 +26,8 @@ public class Interactable : MonoBehaviour
     public GameObject offSFX;
 
     [Header("Puzzler Trigger Settings")]
+    public bool useOnce = false;
+    public bool revealObject = false;
     public GameObject puzzle;
 
     [Header("Lock Settings")]
@@ -96,9 +98,7 @@ public class Interactable : MonoBehaviour
     }
 
     void Pickup()
-    {
-        if (destroyOnPickup)
-            Destroy(gameObject);
+    {        
         if(playerInventory.inventoryIDs.Count < playerInventory.maxSize)
         {
             Instantiate(pickupSFX, transform.position, Quaternion.identity);
@@ -110,11 +110,22 @@ public class Interactable : MonoBehaviour
             interactMessage.GetComponent<Text>().text = "Picked up " + itemName;
             interactMessage.GetComponent<Animator>().SetTrigger("Display");
         }
+        if (destroyOnPickup)
+            Destroy(gameObject);
     }
 
     void PuzzleTrigger()
     {
-        puzzle.SendMessage("Trigger");
+        if (!revealObject)
+            puzzle.SendMessage("Trigger");
+        else
+        {
+            puzzle.SetActive(true);            
+        }
+        if (useOnce)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Switch()

@@ -57,14 +57,35 @@ public class ObjectRevealHandler : MonoBehaviour
                 }
                 if (!contained)
                 {
-                    memories.Add(new Memory(go, player));
+                    if (go.GetComponent<MeshRenderer>())
+                        memories.Add(new Memory(go, player));
+                    else
+                    {
+                        GameObject[] contents = new GameObject[go.transform.childCount];
+                        for (int i = 0; i < go.transform.childCount; i++)
+                        {
+                            contents[i] = go.transform.GetChild(i).gameObject;
+                        }
+                        memories.Add(new Memory(go, contents, player));
+                    }
                 }
             }
             else
             {
-                memories.Add(new Memory(go, player));
+                if (go.GetComponent<MeshRenderer>())
+                    memories.Add(new Memory(go, player));
+                else
+                {
+                    GameObject[] contents = new GameObject[go.transform.childCount];
+                    for (int i = 0; i < go.transform.childCount; i++)
+                    {
+                        contents[i] = go.transform.GetChild(i).gameObject;
+                    }
+                    memories.Add(new Memory(go, contents, player));
+                }
             }
         }
+        print(memories.Count);
     }
 
     public void LockReveal(GameObject memory)
@@ -75,6 +96,19 @@ public class ObjectRevealHandler : MonoBehaviour
             {
                 m.revealLocked = true;
             }
+            else if (m.contents != null)
+            {
+                if (m.contents.Length > 0)
+                {
+                    for (int i = 0; i < m.contents.Length; i++)
+                    {
+                        if (m.contents[i] == memory)
+                        {
+                            m.revealLocked = true;
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -82,24 +116,35 @@ public class ObjectRevealHandler : MonoBehaviour
 public class Memory
 {
     public GameObject gObject;
+    public GameObject[] contents;
     public Transform player;
     public bool isWithinView;
     public bool isVisible = false;
-    public MeshRenderer mr;
-    public Collider col;
     public bool revealLocked = false;
     private bool nextState = false;
     private bool tooClose = false;
+    private bool isContainer = false;
     
     public Memory (GameObject _gObject, Transform _player)
     {
         gObject = _gObject;
         player = _player;
-        mr = gObject.GetComponent<MeshRenderer>();
-        col = gObject.GetComponent<Collider>();
+    }
+    
+    public Memory (GameObject _gObject, GameObject[] _contents, Transform _player)
+    {
+        isContainer = true;
+        gObject = _gObject;
+        contents = _contents;
+        player = _player;
     }
 
     public void ViewTest()
+    {
+        ViewTestSingle();
+    }
+
+    public void ViewTestSingle()
     {
         Vector3 viewPos = ObjectRevealHandler.cam.WorldToViewportPoint(gObject.transform.position);
         bool x, y, z;
@@ -125,9 +170,27 @@ public class Memory
         }
         else if (!isWithinView)
         {
-            mr.enabled = nextState;
-            col.enabled = nextState;
-            isVisible = nextState;
+            if (nextState != isVisible)
+            {
+                if (isContainer)
+                {
+                    foreach (GameObject go in contents)
+                    {
+                        go.GetComponent<MeshRenderer>().enabled = nextState;
+                        go.GetComponent<Collider>().enabled = nextState;
+                    }
+                }
+                else
+                {
+                    gObject.GetComponent<MeshRenderer>().enabled = nextState;
+                    gObject.GetComponent<Collider>().enabled = nextState;
+                }
+                isVisible = nextState;
+            }
+            Color debugColor = nextState ? Color.green : Color.red;
+            if (tooClose)
+                debugColor = Color.blue;
+            Debug.DrawLine(player.transform.position, gObject.transform.position, debugColor);
         }
     }
 }
