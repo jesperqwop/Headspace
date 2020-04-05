@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
             waterStatus = WaterStatus.Underwater;
             UpdateSounds();
         }
-        else if (apoint.position.y > (mainCam.transform.position.y - y))
+        else if (apoint.position.y > (mainCam.transform.position.y - y) && waterStatus != WaterStatus.Underwater)
         {
             //print(camSlider);
             camSlider = mainCam.WorldToViewportPoint(new Vector3(mainCam.transform.position.x, apoint.position.y, mainCam.transform.position.z) + new Vector3(mainCam.transform.forward.x, 0, mainCam.transform.forward.z).normalized * mainCam.nearClipPlane).y;
