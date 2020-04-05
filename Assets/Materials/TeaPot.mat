@@ -90,7 +90,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DissolveValue: 0
     - _DstBlend: 0
-    - _EmissionValue: 0.4
+    - _EmissionValue: 0.05
     - _Float0: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
