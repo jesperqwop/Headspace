@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (apoint.position.y > (mainCam.transform.position.y + y))
+        if (apoint.position.y > (mainCam.transform.position.y + y) && waterStatus != WaterStatus.Underwater)
         {
             camSlider = 1;
             print("Underwater boys");
