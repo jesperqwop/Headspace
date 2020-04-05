@@ -90,7 +90,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DissolveValue: 0
     - _DstBlend: 0
-    - _EmissionValue: 0.27
+    - _EmissionValue: 0.5
     - _Float0: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -99,7 +99,7 @@ Material:
     - _Mode: 0
     - _NormalValue: 1
     - _OcclusionStrength: 1
-    - _PanSpeed: 0.91
+    - _PanSpeed: 1.56
     - _Parallax: 0.02
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
