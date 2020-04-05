@@ -13,7 +13,7 @@ Shader "TextureSliderShader"
 		_TextureColor("TextureColor", Color) = (1,1,1,1)
 		_TextureSlider("TextureSlider", Range( 0 , 1)) = 1
 		_DissolveTexture("DissolveTexture", 2D) = "white" {}
-		_DissolveValue("DissolveValue", Range( 0 , 1)) = 0.9794902
+		_DissolveValue("DissolveValue", Range( 0 , 1)) = 0
 		_PanSpeed("PanSpeed", Float) = 0.48
 		_EmissionValue("EmissionValue", Float) = 0
 		_Cutoff( "Mask Clip Value", Float ) = 0.5
@@ -86,24 +86,24 @@ Shader "TextureSliderShader"
 }
 /*ASEBEGIN
 Version=17800
--1920;357;1035;515;1254.707;512.7099;2.111641;True;True
+-1920;324;1035;548;899.0143;248.058;1;True;True
 Node;AmplifyShaderEditor.SimpleTimeNode;19;-320.8709,425.1432;Inherit;False;1;0;FLOAT;1;False;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;18;-485.1569,308.8976;Inherit;True;Property;_PanSpeed;PanSpeed;8;0;Create;True;0;0;False;0;0.48;0.51;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.TextureCoordinatesNode;20;-487.4692,168.3903;Inherit;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.RangedFloatNode;8;-568.3344,-45.23432;Inherit;False;InstancedProperty;_DissolveValue;DissolveValue;7;0;Create;True;0;0;False;0;0;0;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SamplerNode;1;-574.1893,-438.0665;Inherit;True;Property;_MainTexture;MainTexture;1;0;Create;True;0;0;False;0;-1;8a1bc300c5bf341488b04ada828aba86;2ae8d36eee565fc4099d596143ae93fe;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.RangedFloatNode;3;-553.8699,-219.1297;Inherit;False;InstancedProperty;_TextureSlider;TextureSlider;5;0;Create;True;0;0;False;0;1;1;0;1;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;8;-568.3344,-45.23432;Inherit;False;InstancedProperty;_DissolveValue;DissolveValue;7;0;Create;True;0;0;False;0;0.9794902;0;0;1;0;1;FLOAT;0
-Node;AmplifyShaderEditor.TextureCoordinatesNode;20;-487.4692,168.3903;Inherit;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.RangedFloatNode;18;-485.1569,308.8976;Inherit;True;Property;_PanSpeed;PanSpeed;8;0;Create;True;0;0;False;0;0.48;0.51;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.ColorNode;4;-484.4526,-719.892;Inherit;False;Property;_TextureColor;TextureColor;4;0;Create;True;0;0;False;0;1,1,1,1;1,1,1,1;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.OneMinusNode;10;-278.3506,-38.5162;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.PannerNode;17;-157.5776,184.0508;Inherit;True;3;0;FLOAT2;0,0;False;2;FLOAT2;0,0;False;1;FLOAT;1;False;1;FLOAT2;0
 Node;AmplifyShaderEditor.OneMinusNode;23;-112.5081,-529.8922;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;2;-270.4807,-445.2961;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.ColorNode;14;-172.9585,-734.1877;Inherit;False;Property;_MainColor;MainColor;0;0;Create;True;0;0;False;0;0,0,0,0;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.RangedFloatNode;21;-126.6322,-191.5687;Inherit;False;Property;_EmissionValue;EmissionValue;9;0;Create;True;0;0;False;0;0;0;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;6;-118.2415,-444.2582;Inherit;True;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
-Node;AmplifyShaderEditor.TFHCRemapNode;12;-90.74652,-38.68478;Inherit;False;5;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;3;FLOAT;-0.6;False;4;FLOAT;0.6;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;24;48.51031,-593.8587;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.SamplerNode;9;91.40947,178.2858;Inherit;True;Property;_DissolveTexture;DissolveTexture;6;0;Create;True;0;0;False;0;-1;f852220d8a50e5242928b6f6c80af34d;750b1bd7ba8bd28489650de6d0a95cc5;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;24;48.51031,-593.8587;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
+Node;AmplifyShaderEditor.TFHCRemapNode;12;-90.74652,-38.68478;Inherit;False;5;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;3;FLOAT;-0.6;False;4;FLOAT;0.6;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;6;-118.2415,-444.2582;Inherit;True;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
+Node;AmplifyShaderEditor.RangedFloatNode;21;-126.6322,-191.5687;Inherit;False;Property;_EmissionValue;EmissionValue;9;0;Create;True;0;0;False;0;0;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;13;124.2404,-16.19637;Inherit;False;2;2;0;FLOAT;0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;22;178.4738,-299.491;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.SamplerNode;27;570.4777,-441.1102;Inherit;True;Property;_NormalMap;NormalMap;2;0;Create;True;0;0;False;0;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
@@ -117,12 +117,12 @@ WireConnection;17;1;19;0
 WireConnection;23;0;3;0
 WireConnection;2;0;1;0
 WireConnection;2;1;3;0
-WireConnection;6;0;4;0
-WireConnection;6;1;2;0
-WireConnection;12;0;10;0
+WireConnection;9;1;17;0
 WireConnection;24;0;14;0
 WireConnection;24;1;23;0
-WireConnection;9;1;17;0
+WireConnection;12;0;10;0
+WireConnection;6;0;4;0
+WireConnection;6;1;2;0
 WireConnection;13;0;12;0
 WireConnection;13;1;9;0
 WireConnection;22;0;24;0
@@ -135,4 +135,4 @@ WireConnection;0;2;22;0
 WireConnection;0;3;26;0
 WireConnection;0;10;13;0
 ASEEND*/
-//CHKSM=CE825621E39D86A73B6E9632BAE767A39A971ED9
+//CHKSM=EB1343510AABC66DDAB4753E3BEFF6532E449CFA
