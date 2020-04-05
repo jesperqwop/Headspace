@@ -10,10 +10,12 @@ public class MultipleMaterialScripts : MonoBehaviour
     public bool autoDissolve;
     [Range(0, 1)]
     public float dissolveValue;
+    [Range(0, 1)]
+    public float textureValue;
     Renderer[] matRends;
     Material[] mats;
-    public int numberOfMaterials;
-    public int extraCounter;
+    int numberOfMaterials;
+    int extraCounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +61,10 @@ public class MultipleMaterialScripts : MonoBehaviour
             }
         }
 
-        foreach (Material mat in mats) { mat.SetFloat("_DissolveValue", dissolveValue); }
+        foreach (Material mat in mats) {
+            mat.SetFloat("_DissolveValue", dissolveValue);
+            mat.SetFloat("_TextureSlider", textureValue);
+        }
 
     }
 }
