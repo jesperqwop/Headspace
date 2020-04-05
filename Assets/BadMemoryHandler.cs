@@ -19,6 +19,7 @@ public class BadMemoryHandler : MonoBehaviour
     public bool stopTheWater = false;
 
     public GameObject waterSplashSFX;
+    public GameObject[] badMemories;
 
     void Awake()
     {
@@ -87,5 +88,6 @@ public class BadMemoryHandler : MonoBehaviour
         }
         GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>().GetThoseFeetWet();
         waterSplashSFX.GetComponent<AudioSource>().Play();
+
     }
 }
