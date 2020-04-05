@@ -96,11 +96,18 @@ public class GameManager : MonoBehaviour
         {
             reverbZone.reverbPreset = AudioReverbPreset.Underwater;
             controller.m_FootstepSounds = dryFootsteps;
+            transform.GetChild(0).GetComponent<AudioSource>().Play();
         }
         else 
         {
             reverbZone.reverbPreset = AudioReverbPreset.Livingroom;
             controller.m_FootstepSounds = dryFootsteps;
         }
+    }
+    
+    public void GetThoseFeetWet()
+    {
+        waterStatus = WaterStatus.Water;
+        UpdateSounds();
     }
 }
