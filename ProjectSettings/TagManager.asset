@@ -8,6 +8,7 @@ TagManager:
   - Manager
   - Interact message
   - Memory
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - PostProcessing
   - Underwater
   - Memory
-  - 
+  - Wall
   - 
   - 
   - 

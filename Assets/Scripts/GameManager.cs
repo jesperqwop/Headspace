@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public enum WaterStatus { Dry, Water, Underwater };
     public WaterStatus waterStatus = WaterStatus.Dry;
+    public static bool gameOver;
 
     public float waterRiseSpeed = 100;
 
@@ -22,13 +23,14 @@ public class GameManager : MonoBehaviour
     public Transform apoint;
 
     public float x, y, z;
-
+    public GameObject waterSource, waterSource1, waterSource2;
 
     AudioReverbZone reverbZone;
     FirstPersonController controller;
 
     AudioClip[] dryFootsteps;
     public AudioClip[] wetFootsteps;
+    float maxVal;
     //  public firrs
 
     // Start is called before the first frame update
@@ -51,23 +53,46 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (apoint.position.y > (mainCam.transform.position.y + y) && waterStatus != WaterStatus.Underwater)
+        if (apoint.position.y > (mainCam.transform.position.y + y) && waterStatus != WaterStatus.Underwater && !gameOver)
         {
             camSlider = 1;
             print("Underwater boys");
+
             waterStatus = WaterStatus.Underwater;
             UpdateSounds();
         }
-        else if (apoint.position.y > (mainCam.transform.position.y - y) && waterStatus != WaterStatus.Underwater)
+        else if (apoint.position.y > (mainCam.transform.position.y - y) && waterStatus != WaterStatus.Underwater || gameOver)
         {
             //print(camSlider);
+            waterStatus = WaterStatus.Water;
             camSlider = mainCam.WorldToViewportPoint(new Vector3(mainCam.transform.position.x, apoint.position.y, mainCam.transform.position.z) + new Vector3(mainCam.transform.forward.x, 0, mainCam.transform.forward.z).normalized * mainCam.nearClipPlane).y;
+
+
         }
 
-        camSlider = Mathf.Clamp(camSlider, 0, 1);
+        if (waterStatus == WaterStatus.Water && !gameOver) {
+            print(apoint.localPosition.y);
+            if (apoint.localPosition.y > 2) { waterSource1.SetActive(enabled); }
+            if (apoint.localPosition.y > 2.6) { waterSource2.SetActive(enabled); }
+        }
+   
 
-        // print(mainCam.WorldToViewportPoint(lpoint));
-        camSlider += Input.GetAxis("Mouse ScrollWheel") * 0.1F;
+        camSlider = Mathf.Clamp(camSlider, 0, 1);
+        if (gameOver)
+        {
+            waterSource.GetComponentInChildren<FadeInAudio>().FadeOut();
+            waterSource1.GetComponentInChildren<FadeInAudio>().FadeOut();
+            waterSource2.GetComponentInChildren<FadeInAudio>().FadeOut();
+
+            maxVal = camSlider;
+            camSlider = Mathf.Clamp(camSlider, 0, maxVal);
+            if (camSlider <= 0 && waterStatus != WaterStatus.Dry) {
+                waterStatus = WaterStatus.Dry;
+                UpdateSounds();
+            }
+            
+
+        }
 
 
         if (waterCam == null) return;
@@ -102,6 +127,7 @@ public class GameManager : MonoBehaviour
         {
             reverbZone.reverbPreset = AudioReverbPreset.Livingroom;
             controller.m_FootstepSounds = dryFootsteps;
+            transform.GetChild(0).GetComponent<AudioSource>().Stop();
         }
     }
     

@@ -19,6 +19,7 @@ public class Interactable : MonoBehaviour
     public GameObject pickupSFX;
 
     [Header("Switch Settings")]
+    public bool destroyOnSwitch;
     public bool singleUse;
     public bool used;
     public GameObject switchEffect;
@@ -137,6 +138,7 @@ public class Interactable : MonoBehaviour
             if (singleUse)
             {
                 used = true;
+                if (destroyOnSwitch) GetComponent<Collider>().enabled = false;
             }
         }
     }

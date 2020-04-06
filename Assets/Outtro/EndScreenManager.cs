@@ -24,6 +24,8 @@ public class EndScreenManager : MonoBehaviour
     void Start()
     {
         camCurrent = cam.backgroundColor;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame

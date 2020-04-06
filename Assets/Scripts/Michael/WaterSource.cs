@@ -25,7 +25,7 @@ public class WaterSource : MonoBehaviour
         }
         else if (ps.isPlaying && BadMemoryHandler.instance.stopTheWater)
         {
-            Destroy(gameObject);
+            ps.Stop();
         }
         if (manager.waterStatus == GameManager.WaterStatus.Underwater)
         {

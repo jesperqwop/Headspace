@@ -20,6 +20,7 @@ public class BadMemoryHandler : MonoBehaviour
     public bool stopTheWater = false;
 
     public GameObject waterSplashSFX;
+  
     public GameObject[] badMemories;
 
     public FadeIn fadeToWhite;
@@ -81,6 +82,7 @@ public class BadMemoryHandler : MonoBehaviour
             if (lowerWater)
             {
                 waterLevel = Mathf.Lerp(1, 0, t);
+                GameManager.gameOver = true;
                 FadeOut();
             }
         }
@@ -130,7 +132,7 @@ public class BadMemoryHandler : MonoBehaviour
             memory.gameObject.SetActive(true);
         }
         GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>().GetThoseFeetWet();
-        waterSplashSFX.GetComponent<AudioSource>().Play();
+        waterSplashSFX.SetActive(true);
 
         foreach(GameObject memory in badMemories)
         {
