@@ -176,8 +176,17 @@ public class Memory
                 {
                     foreach (GameObject go in contents)
                     {
-                        go.GetComponent<MeshRenderer>().enabled = nextState;
-                        go.GetComponent<Collider>().enabled = nextState;
+                        MeshRenderer[] mrs = go.transform.GetComponentsInChildren<MeshRenderer>();
+                        Collider[] cols = go.transform.GetComponentsInChildren<Collider>();
+
+                        foreach(MeshRenderer mr in mrs)
+                        {
+                            mr.enabled = nextState;
+                        }
+                        foreach(Collider col in cols)
+                        {
+                            col.enabled = nextState;
+                        }
                     }
                 }
                 else

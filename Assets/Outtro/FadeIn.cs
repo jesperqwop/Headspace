@@ -10,7 +10,7 @@ public class FadeIn : MonoBehaviour
     public float fadeSpeed = 1f;
     public bool start = false;
     public bool fadeOut = false;
-    float t = 0;
+    public float t = 0;
     // Start is called before the first frame update
     void Start()
     {

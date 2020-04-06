@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BadMemoryHandler : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class BadMemoryHandler : MonoBehaviour
     public GameObject waterSplashSFX;
     public GameObject[] badMemories;
 
+    public FadeIn fadeToWhite;
+    bool startedLoad = false;
+    bool lowerWater = false;
+    AsyncOperation ao;
+
     void Awake()
     {
         instance = this;
@@ -35,6 +41,7 @@ public class BadMemoryHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (unviewedMemories.Count == 3)
         {
             listPopulated = true;
@@ -42,6 +49,7 @@ public class BadMemoryHandler : MonoBehaviour
         if (listPopulated && triggered)
         {
             t += Time.deltaTime * 0.5f;
+            t = Mathf.Clamp01(t);
             switch (viewedMemories.Count)
             {
                 default:
@@ -50,33 +58,68 @@ public class BadMemoryHandler : MonoBehaviour
                     waterLevel = Mathf.Lerp(0, 0.25f, t);
                     break;
                 case 1:
-                    waterLevel = Mathf.Lerp(0.25f, 0.45f, t);
+                    waterLevel = Mathf.Lerp(0.25f, 0.40f, t);
                     break;
                 case 2:
-                    waterLevel = Mathf.Lerp(0.45f, 0.60f, t);
+                    waterLevel = Mathf.Lerp(0.40f, 0.55f, t);
                     break;
                 case 3:
-                    waterLevel = Mathf.Lerp(0.6f, 1f, t);
+                    waterLevel = Mathf.Lerp(0.55f, 1f, t);
                     finalMemory.SetActive(true);
                     checkForGoodMemory = true;
                     
                     break;
             }
         }
-
+        if (stopTheWater)
+        {
+            if (Input.anyKeyDown && !lowerWater)
+            {
+                lowerWater = true;
+                t = 0;
+            }
+            if (lowerWater)
+            {
+                waterLevel = Mathf.Lerp(1, 0, t);
+                FadeOut();
+            }
+        }
         if (checkForGoodMemory)
         {
-            foreach(Interactable m in viewedMemories)
+            if (!startedLoad)
+            {
+                LoadTheEnd();
+            }
+            foreach (Interactable m in viewedMemories)
             {
                 if (!m.isBadMemory)
                 {
-                    stopTheWater = true;
-                    waterLevel = Mathf.Lerp(1, 0, t);
+                    if (!stopTheWater)
+                    {
+                        stopTheWater = true;
+                    }
+                        
                 }
             }
         }
+        
 
-        t = Mathf.Clamp01(t);
+    }
+
+    public void LoadTheEnd()
+    {
+        startedLoad = true;
+        ao = SceneManager.LoadSceneAsync(1);
+        ao.allowSceneActivation = false;
+    }
+
+    public void FadeOut()
+    {
+        fadeToWhite.start = true;
+        if (fadeToWhite.t >= 1)
+        {
+            ao.allowSceneActivation = true;
+        }
     }
 
     public void Trigger()

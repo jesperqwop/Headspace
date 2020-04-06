@@ -14,9 +14,10 @@ public class EndScreenManager : MonoBehaviour
     public FadeIn lastText;
     public Camera cam;
 
-    public float time;
+    public float time = 0;
+    float tt = 0;
     bool fadeCam = false;
-    float t;
+    float t = 0;
     Color camCurrent;
 
     // Start is called before the first frame update
@@ -28,7 +29,8 @@ public class EndScreenManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time = Mathf.RoundToInt(Time.time);
+        tt += Time.deltaTime;
+        time = Mathf.RoundToInt(tt);
 
         switch (time)
         {
