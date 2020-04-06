@@ -21,6 +21,10 @@ public class BadPicture : MonoBehaviour
         if (BadMemoryHandler.instance.triggered)
         {
             GetComponent<Renderer>().material = badVersion;
+            if(GetComponent<Interactable>()!= null)
+            {
+                transform.localScale = new Vector3(4, 0.75f, 4);
+            }
         }
     }
 }

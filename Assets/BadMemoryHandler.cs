@@ -89,5 +89,10 @@ public class BadMemoryHandler : MonoBehaviour
         GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>().GetThoseFeetWet();
         waterSplashSFX.GetComponent<AudioSource>().Play();
 
+        foreach(GameObject memory in badMemories)
+        {
+            memory.GetComponent<Collider>().enabled = true;
+        }
+
     }
 }
