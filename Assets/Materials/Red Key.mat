@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Red Key
-  m_Shader: {fileID: 4800000, guid: b39434c0d090af241870c67376de943e, type: 3}
+  m_Shader: {fileID: 4800000, guid: 9005d462cbfcf634884807fae4b13da2, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
